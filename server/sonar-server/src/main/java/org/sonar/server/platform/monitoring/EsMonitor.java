@@ -28,15 +28,19 @@ import org.elasticsearch.action.admin.cluster.stats.ClusterStatsResponse;
 import org.elasticsearch.action.admin.indices.stats.IndexStats;
 import org.elasticsearch.action.admin.indices.stats.IndicesStatsResponse;
 import org.elasticsearch.common.breaker.CircuitBreaker;
+import org.sonar.process.ProcessId;
+import org.sonar.process.jmx.EsSettingsMBean;
 import org.sonar.server.es.EsClient;
 
 import static org.apache.commons.io.FileUtils.byteCountToDisplaySize;
 
 public class EsMonitor extends BaseMonitorMBean implements EsMonitorMBean {
 
+  private final MBeanConnector mbeanConnector;
   private final EsClient esClient;
 
-  public EsMonitor(EsClient esClient) {
+  public EsMonitor(MBeanConnector mbeanConnector, EsClient esClient) {
+    this.mbeanConnector = mbeanConnector;
     this.esClient = esClient;
   }
 
@@ -66,6 +70,13 @@ public class EsMonitor extends BaseMonitorMBean implements EsMonitorMBean {
   @Override
   public LinkedHashMap<String, Object> attributes() {
     LinkedHashMap<String, Object> attributes = new LinkedHashMap<>();
+
+    try (MBeanConnection connection = mbeanConnector.connect(ProcessId.ELASTICSEARCH)) {
+      EsSettingsMBean mbean = connection.getMBean(EsSettingsMBean.OBJECT_NAME, EsSettingsMBean.class);
+      attributes.put("Cluster Name", mbean.getClusterName());
+      attributes.put("Node Name", mbean.getNodeName());
+      attributes.put("HTTP Port", mbean.getHttpPort());
+    }
     attributes.put("State", getStateAsEnum());
     attributes.put("Indices", indexAttributes());
     attributes.put("Number of Nodes", getNumberOfNodes());
@@ -96,8 +107,8 @@ public class EsMonitor extends BaseMonitorMBean implements EsMonitorMBean {
     for (Map.Entry<String, NodeStats> entry : nodesStats.getNodesMap().entrySet()) {
 
       LinkedHashMap<String, Object> nodeAttributes = new LinkedHashMap<>();
-      nodes.put(entry.getKey(), nodeAttributes);
       NodeStats stats = entry.getValue();
+      nodes.put(stats.getNode().getName(), nodeAttributes);
       nodeAttributes.put("Address", stats.getNode().getAddress().toString());
       nodeAttributes.put("Type", stats.getNode().isMasterNode() ? "Master" : "Slave");
       nodeAttributes.put("Disk Available", byteCountToDisplaySize(stats.getFs().getTotal().getAvailable().bytes()));

@@ -24,56 +24,60 @@ import java.util.Map;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.mockito.Mockito;
 import org.sonar.api.config.Settings;
+import org.sonar.process.ProcessId;
+import org.sonar.process.jmx.EsSettingsMBean;
 import org.sonar.server.es.EsTester;
 import org.sonar.server.es.NewIndex;
 import org.sonar.server.issue.index.IssueIndexDefinition;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class EsMonitorTest {
 
   @ClassRule
   public static EsTester esTester = new EsTester().addDefinitions(new IssueIndexDefinition(new Settings()));
+  MBeanConnector mbeanConnector = mock(MBeanConnector.class, Mockito.RETURNS_MOCKS);
+  EsMonitor underTest = new EsMonitor(mbeanConnector, esTester.client());
 
   @Test
   public void name() {
-    EsMonitor monitor = new EsMonitor(esTester.client());
-    assertThat(monitor.name()).isEqualTo("ElasticSearch");
+    assertThat(underTest.name()).isEqualTo("ElasticSearch");
   }
-
 
   @Test
   public void cluster_attributes() {
-    EsMonitor monitor = new EsMonitor(esTester.client());
-    LinkedHashMap<String, Object> attributes = monitor.attributes();
-    assertThat(monitor.getState()).isEqualTo(ClusterHealthStatus.GREEN.name());
+    LinkedHashMap<String, Object> attributes = underTest.attributes();
+    assertThat(underTest.getState()).isEqualTo(ClusterHealthStatus.GREEN.name());
     assertThat(attributes.get("State")).isEqualTo(ClusterHealthStatus.GREEN);
     assertThat(attributes.get("Number of Nodes")).isEqualTo(1);
   }
 
   @Test
   public void node_attributes() {
-    EsMonitor monitor = new EsMonitor(esTester.client());
-    LinkedHashMap<String, Object> attributes = monitor.attributes();
-    Map nodesAttributes = (Map)attributes.get("Nodes");
+    LinkedHashMap<String, Object> attributes = underTest.attributes();
+    Map nodesAttributes = (Map) attributes.get("Nodes");
 
     // one node
     assertThat(nodesAttributes).hasSize(1);
-    Map nodeAttributes = (Map)nodesAttributes.values().iterator().next();
+    Map nodeAttributes = (Map) nodesAttributes.values().iterator().next();
     assertThat(nodeAttributes.get("Type")).isEqualTo("Master");
     assertThat(nodeAttributes.get("Store Size")).isNotNull();
   }
 
   @Test
   public void index_attributes() {
-    EsMonitor monitor = new EsMonitor(esTester.client());
-    LinkedHashMap<String, Object> attributes = monitor.attributes();
-    Map indicesAttributes = (Map)attributes.get("Indices");
+    LinkedHashMap<String, Object> attributes = underTest.attributes();
+    Map indicesAttributes = (Map) attributes.get("Indices");
 
     // one index "issues"
     assertThat(indicesAttributes).hasSize(1);
-    Map indexAttributes = (Map)indicesAttributes.values().iterator().next();
+    Map indexAttributes = (Map) indicesAttributes.values().iterator().next();
     assertThat(indexAttributes.get("Docs")).isEqualTo(0L);
     assertThat(indexAttributes.get("Shards")).isEqualTo(NewIndex.DEFAULT_NUMBER_OF_SHARDS);
     assertThat(indexAttributes.get("Store Size")).isNotNull();

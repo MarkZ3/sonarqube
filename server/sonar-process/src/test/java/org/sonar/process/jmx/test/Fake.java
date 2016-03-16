@@ -17,18 +17,14 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.app;
+package org.sonar.process.jmx.test;
 
-public interface ProcessCommandWrapper {
-  /**
-   * Requests to the main process that SQ be restarted.
-   */
-  void requestSQRestart();
+import org.sonar.process.jmx.FakeMBean;
 
-  /**
-   * Notifies any listening process that the WebServer is operational.
-   */
-  void notifyOperational();
+// implementation is in a different package than interface
+public class Fake implements FakeMBean {
+  @Override
+  public void foo() {
 
-  String getJmxUrl(int processNumber);
+  }
 }

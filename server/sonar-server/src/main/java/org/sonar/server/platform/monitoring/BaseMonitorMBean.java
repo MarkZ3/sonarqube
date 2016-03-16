@@ -20,14 +20,7 @@
 package org.sonar.server.platform.monitoring;
 
 import org.picocontainer.Startable;
-
-import javax.management.InstanceNotFoundException;
-import javax.management.MBeanRegistrationException;
-import javax.management.MalformedObjectNameException;
-import javax.management.ObjectName;
-import javax.management.OperationsException;
-
-import java.lang.management.ManagementFactory;
+import org.sonar.process.jmx.MBeans;
 
 /**
  * Base implementation of {@link org.sonar.server.platform.monitoring.Monitor}
@@ -40,11 +33,7 @@ public abstract class BaseMonitorMBean implements Monitor, Startable {
    */
   @Override
   public void start() {
-    try {
-      ManagementFactory.getPlatformMBeanServer().registerMBean(this, objectName());
-    } catch (OperationsException | MBeanRegistrationException e) {
-      throw new IllegalStateException("Fail to register MBean " + name(), e);
-    }
+    MBeans.register(objectName(), this);
   }
 
   /**
@@ -52,16 +41,10 @@ public abstract class BaseMonitorMBean implements Monitor, Startable {
    */
   @Override
   public void stop() {
-    try {
-      ManagementFactory.getPlatformMBeanServer().unregisterMBean(objectName());
-    } catch (InstanceNotFoundException ignored) {
-      // ignore, was not correctly started
-    } catch (Exception e) {
-      throw new IllegalStateException("Fail to unregister MBean " + name(), e);
-    }
+    MBeans.unregister(objectName());
   }
 
-  ObjectName objectName() throws MalformedObjectNameException {
-    return new ObjectName(String.format("SonarQube:name=%s", name()));
+  String objectName() {
+    return String.format("SonarQube:name=%s", name());
   }
 }

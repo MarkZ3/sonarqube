@@ -19,44 +19,19 @@
  */
 package org.sonar.server.platform.monitoring;
 
-import javax.management.ObjectName;
 import org.junit.Test;
 
-import javax.annotation.CheckForNull;
-import javax.management.InstanceNotFoundException;
-import javax.management.ObjectInstance;
-import java.lang.management.ManagementFactory;
+import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BaseMonitorMBeanTest {
-
-  FakeMonitor underTest = new FakeMonitor();
+public class WebJvmPropsMonitorTest {
 
   @Test
-  public void test_registration() throws Exception {
-    assertThat(getMBean()).isNull();
+  public void attributes() {
+    WebJvmPropsMonitor underTest = new WebJvmPropsMonitor();
+    LinkedHashMap<String, Object> attributes = underTest.attributes();
 
-    underTest.start();
-    assertThat(getMBean()).isNotNull();
-
-    underTest.stop();
-    assertThat(getMBean()).isNull();
+    assertThat(attributes).containsKeys("java.vm.vendor", "os.name");
   }
-
-  @Test
-  public void do_not_fail_when_stopping_unstarted() throws Exception {
-    underTest.stop();
-    assertThat(getMBean()).isNull();
-  }
-
-  @CheckForNull
-  private ObjectInstance getMBean() throws Exception {
-    try {
-      return ManagementFactory.getPlatformMBeanServer().getObjectInstance(new ObjectName(underTest.objectName()));
-    } catch (InstanceNotFoundException e) {
-      return null;
-    }
-  }
-
 }

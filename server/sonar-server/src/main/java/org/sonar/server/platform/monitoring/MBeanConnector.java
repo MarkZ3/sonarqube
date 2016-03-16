@@ -17,34 +17,30 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.process.monitor;
+package org.sonar.server.platform.monitoring;
 
-import java.io.File;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import javax.management.remote.JMXConnector;
+import javax.management.remote.JMXConnectorFactory;
+import javax.management.remote.JMXServiceURL;
 import org.sonar.process.ProcessId;
+import org.sonar.server.app.ProcessCommandWrapper;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
+public class MBeanConnector {
 
-public class JavaProcessLauncherTest {
+  private final ProcessCommandWrapper processCommands;
 
-  @Rule
-  public TemporaryFolder temp = new TemporaryFolder();
+  public MBeanConnector(ProcessCommandWrapper processCommands) {
+    this.processCommands = processCommands;
+  }
 
-  @Test
-  public void fail_to_launch() throws Exception {
-    File tempDir = temp.newFolder();
-    JavaCommand command = new JavaCommand(ProcessId.ELASTICSEARCH);
-    JavaProcessLauncher launcher = new JavaProcessLauncher(new Timeouts(), tempDir);
+  public MBeanConnection connect(ProcessId processId) {
     try {
-      // command is not correct (missing options), java.lang.ProcessBuilder#start()
-      // throws an exception
-      launcher.launch(command);
-      fail();
-    } catch (IllegalStateException e) {
-      assertThat(e).hasMessage("Fail to launch es");
+      String url = processCommands.getJmxUrl(processId.getIpcIndex());
+      JMXConnector jmxConnector = JMXConnectorFactory.newJMXConnector(new JMXServiceURL(url), null);
+      jmxConnector.connect();
+      return new MBeanConnection(jmxConnector);
+    } catch (Exception e) {
+      throw new IllegalStateException("TODO", e);
     }
   }
 }

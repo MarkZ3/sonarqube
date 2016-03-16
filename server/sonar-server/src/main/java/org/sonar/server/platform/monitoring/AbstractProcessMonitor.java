@@ -19,19 +19,30 @@
  */
 package org.sonar.server.platform.monitoring;
 
-import org.junit.Test;
-
 import java.util.LinkedHashMap;
+import org.sonar.process.ProcessId;
 
-import static org.assertj.core.api.Assertions.assertThat;
+public abstract class AbstractProcessMonitor implements Monitor {
 
-public class JvmPropertiesMonitorTest {
+  private final MBeanConnector mBeanConnector;
+  private final ProcessId processId;
+  private final String name;
 
-  @Test
-  public void attributes() {
-    JvmPropertiesMonitor underTest = new JvmPropertiesMonitor();
-    LinkedHashMap<String, Object> attributes = underTest.attributes();
+  public AbstractProcessMonitor(MBeanConnector mBeanConnector, ProcessId processId, String name) {
+    this.mBeanConnector = mBeanConnector;
+    this.processId = processId;
+    this.name = name;
+  }
 
-    assertThat(attributes).containsKeys("java.vm.vendor", "os.name");
+  @Override
+  public String name() {
+    return name;
+  }
+
+  @Override
+  public LinkedHashMap<String, Object> attributes() {
+    try (MBeanConnection connection = mBeanConnector.connect(processId)) {
+      return new LinkedHashMap<>(connection.getSystemState());
+    }
   }
 }

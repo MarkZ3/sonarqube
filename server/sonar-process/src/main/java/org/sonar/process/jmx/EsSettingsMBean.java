@@ -17,27 +17,22 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.platform.monitoring;
+package org.sonar.process.jmx;
 
-import com.google.common.collect.Maps;
+/**
+ * MBean registered in the Elasticsearch process
+ */
+public interface EsSettingsMBean {
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.SortedMap;
+  String OBJECT_NAME = "SonarQube:name=ElasticsearchConfig";
 
-public class JvmPropertiesMonitor implements Monitor {
-  @Override
-  public String name() {
-    return "JvmProperties";
-  }
+  /**
+   * @return the enabled HTTP port, -1 if disabled
+   */
+  int getHttpPort();
 
-  @Override
-  public LinkedHashMap<String, Object> attributes() {
-    SortedMap<String, Object> sortedProps = Maps.newTreeMap();
-    for (Map.Entry<Object, Object> systemProp : System.getProperties().entrySet()) {
-      sortedProps.put(Objects.toString(systemProp.getKey()), Objects.toString(systemProp.getValue()));
-    }
-    return new LinkedHashMap<>(sortedProps);
-  }
+  String getClusterName();
+
+  String getNodeName();
+
 }

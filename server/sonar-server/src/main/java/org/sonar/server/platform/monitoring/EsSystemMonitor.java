@@ -17,18 +17,13 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.app;
+package org.sonar.server.platform.monitoring;
 
-public interface ProcessCommandWrapper {
-  /**
-   * Requests to the main process that SQ be restarted.
-   */
-  void requestSQRestart();
+import org.sonar.process.ProcessId;
 
-  /**
-   * Notifies any listening process that the WebServer is operational.
-   */
-  void notifyOperational();
+public class EsSystemMonitor extends AbstractProcessMonitor {
 
-  String getJmxUrl(int processNumber);
+  public EsSystemMonitor(MBeanConnector mBeanConnector) {
+    super(mBeanConnector, ProcessId.ELASTICSEARCH, "Elasticsearch System");
+  }
 }

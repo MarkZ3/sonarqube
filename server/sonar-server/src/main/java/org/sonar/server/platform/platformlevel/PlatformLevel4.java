@@ -160,8 +160,10 @@ import org.sonar.server.platform.ServerLogging;
 import org.sonar.server.platform.SettingsChangeNotifier;
 import org.sonar.server.platform.monitoring.DatabaseMonitor;
 import org.sonar.server.platform.monitoring.EsMonitor;
-import org.sonar.server.platform.monitoring.JvmPropertiesMonitor;
+import org.sonar.server.platform.monitoring.EsSystemMonitor;
+import org.sonar.server.platform.monitoring.WebJvmPropsMonitor;
 import org.sonar.server.platform.monitoring.PluginsMonitor;
+import org.sonar.server.platform.monitoring.MBeanConnector;
 import org.sonar.server.platform.monitoring.SonarQubeMonitor;
 import org.sonar.server.platform.monitoring.SystemMonitor;
 import org.sonar.server.platform.ws.ChangeLogLevelAction;
@@ -660,6 +662,7 @@ public class PlatformLevel4 extends PlatformLevel {
       TypeValidationModule.class,
 
       // System
+      MBeanConnector.class,
       ServerLogging.class,
       RestartAction.class,
       InfoAction.class,
@@ -670,7 +673,8 @@ public class PlatformLevel4 extends PlatformLevel {
       SonarQubeMonitor.class,
       EsMonitor.class,
       PluginsMonitor.class,
-      JvmPropertiesMonitor.class,
+      WebJvmPropsMonitor.class,
+      EsSystemMonitor.class,
       DatabaseMonitor.class,
       MigrateDbAction.class,
       LogsAction.class,

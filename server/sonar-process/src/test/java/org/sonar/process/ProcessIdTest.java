@@ -17,18 +17,17 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.app;
+package org.sonar.process;
 
-public interface ProcessCommandWrapper {
-  /**
-   * Requests to the main process that SQ be restarted.
-   */
-  void requestSQRestart();
+import org.junit.Test;
 
-  /**
-   * Notifies any listening process that the WebServer is operational.
-   */
-  void notifyOperational();
+import static org.assertj.core.api.Assertions.assertThat;
 
-  String getJmxUrl(int processNumber);
+public class ProcessIdTest {
+
+  @Test
+  public void test() {
+    assertThat(ProcessId.COMPUTE_ENGINE.getKey()).isEqualTo("ce");
+    assertThat(ProcessId.COMPUTE_ENGINE.getIpcIndex()).isEqualTo(3);
+  }
 }

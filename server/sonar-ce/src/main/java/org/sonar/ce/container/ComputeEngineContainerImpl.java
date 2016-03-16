@@ -515,7 +515,7 @@ public class ComputeEngineContainerImpl implements ComputeEngineContainer {
     // SonarQubeMonitor.class, no Monitor in CE, responsibility of Web Server
     // EsMonitor.class, no Monitor in CE, responsibility of Web Server
     // PluginsMonitor.class, no Monitor in CE, responsibility of Web Server
-    // JvmPropertiesMonitor.class, no Monitor in CE, responsibility of Web Server
+    // WebJvmPropsMonitor.class, no Monitor in CE, responsibility of Web Server
     // DatabaseMonitor.class, no Monitor in CE, responsibility of Web Server
     // MigrateDbAction.class, no Web Service in CE
     // LogsAction.class, no Web Service in CE

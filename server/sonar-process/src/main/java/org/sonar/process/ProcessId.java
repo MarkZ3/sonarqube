@@ -17,18 +17,25 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.app;
+package org.sonar.process;
 
-public interface ProcessCommandWrapper {
-  /**
-   * Requests to the main process that SQ be restarted.
-   */
-  void requestSQRestart();
+public enum ProcessId {
 
-  /**
-   * Notifies any listening process that the WebServer is operational.
-   */
-  void notifyOperational();
+  APP("app", 0), ELASTICSEARCH("es", 1), WEB_SERVER("web", 2), COMPUTE_ENGINE("ce", 3);
 
-  String getJmxUrl(int processNumber);
+  private final String key;
+  private final int ipcIndex;
+
+  ProcessId(String key, int ipcIndex) {
+    this.key = key;
+    this.ipcIndex = ipcIndex;
+  }
+
+  public String getKey() {
+    return key;
+  }
+
+  public int getIpcIndex() {
+    return ipcIndex;
+  }
 }

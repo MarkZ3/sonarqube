@@ -17,18 +17,27 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.app;
+package org.sonar.server.platform.monitoring;
 
-public interface ProcessCommandWrapper {
-  /**
-   * Requests to the main process that SQ be restarted.
-   */
-  void requestSQRestart();
+import com.google.common.collect.Maps;
 
-  /**
-   * Notifies any listening process that the WebServer is operational.
-   */
-  void notifyOperational();
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.SortedMap;
 
-  String getJmxUrl(int processNumber);
+public class WebJvmPropsMonitor implements Monitor {
+  @Override
+  public String name() {
+    return "JvmProperties";
+  }
+
+  @Override
+  public LinkedHashMap<String, Object> attributes() {
+    SortedMap<String, Object> sortedProps = Maps.newTreeMap();
+    for (Map.Entry<Object, Object> systemProp : System.getProperties().entrySet()) {
+      sortedProps.put(Objects.toString(systemProp.getKey()), Objects.toString(systemProp.getValue()));
+    }
+    return new LinkedHashMap<>(sortedProps);
+  }
 }
