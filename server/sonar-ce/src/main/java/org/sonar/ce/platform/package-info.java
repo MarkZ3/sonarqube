@@ -17,22 +17,7 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.api.server;
+@ParametersAreNonnullByDefault
+package org.sonar.ce.platform;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import org.sonar.api.batch.BatchSide;
-
-/**
- * Same as {@link BatchSide} but for server-side components.
- *
- * @since 5.2
- * @deprecated use {@link WebServerSide} and/or {@link ComputeEngineSide} instead
- */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@Deprecated
-public @interface ServerSide {
-}
+import javax.annotation.ParametersAreNonnullByDefault;

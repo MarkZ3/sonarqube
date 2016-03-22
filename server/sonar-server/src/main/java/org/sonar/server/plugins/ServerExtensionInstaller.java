@@ -21,30 +21,35 @@ package org.sonar.server.plugins;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
+import java.lang.annotation.Annotation;
 import java.util.Map;
+import javax.annotation.Nullable;
 import org.sonar.api.Extension;
 import org.sonar.api.ExtensionProvider;
 import org.sonar.api.Plugin;
-import org.sonar.api.SonarPlugin;
 import org.sonar.api.SonarQubeVersion;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.utils.AnnotationUtils;
 import org.sonar.core.platform.ComponentContainer;
 import org.sonar.core.platform.PluginInfo;
 import org.sonar.core.platform.PluginRepository;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 /**
  * Loads the plugins server extensions and injects them to DI container
  */
-@ServerSide
-public class ServerExtensionInstaller {
+public abstract class ServerExtensionInstaller {
 
   private final SonarQubeVersion sonarQubeVersion;
   private final PluginRepository pluginRepository;
+  private final Class<? extends Annotation>[] supportedAnnotationTypes;
 
-  public ServerExtensionInstaller(SonarQubeVersion sonarQubeVersion, PluginRepository pluginRepository) {
+  protected ServerExtensionInstaller(SonarQubeVersion sonarQubeVersion, PluginRepository pluginRepository,
+    @Nullable Class<? extends Annotation>... supportedAnnotationTypes) {
+    checkArgument(supportedAnnotationTypes != null && supportedAnnotationTypes.length > 0, "At least one supported annotation type must be specified");
     this.sonarQubeVersion = sonarQubeVersion;
     this.pluginRepository = pluginRepository;
+    this.supportedAnnotationTypes = supportedAnnotationTypes;
   }
 
   public void installExtensions(ComponentContainer container) {
@@ -99,12 +104,14 @@ public class ServerExtensionInstaller {
   }
 
   Object installExtension(ComponentContainer container, PluginInfo pluginInfo, Object extension, boolean acceptProvider) {
-    if (AnnotationUtils.getAnnotation(extension, ServerSide.class) != null) {
-      if (!acceptProvider && isExtensionProvider(extension)) {
-        throw new IllegalStateException("ExtensionProvider can not include providers itself: " + extension);
+    for (Class<? extends Annotation> supportedAnnotationType : supportedAnnotationTypes) {
+      if (AnnotationUtils.getAnnotation(extension, supportedAnnotationType) != null) {
+        if (!acceptProvider && isExtensionProvider(extension)) {
+          throw new IllegalStateException("ExtensionProvider can not include providers itself: " + extension);
+        }
+        container.addExtension(pluginInfo, extension);
+        return extension;
       }
-      container.addExtension(pluginInfo, extension);
-      return extension;
     }
     return null;
   }

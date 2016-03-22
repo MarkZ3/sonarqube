@@ -26,13 +26,11 @@ import java.lang.annotation.Target;
 import org.sonar.api.batch.BatchSide;
 
 /**
- * Same as {@link BatchSide} but for server-side components.
+ * Same as {@link BatchSide} but for components for the Web Server.
  *
- * @since 5.2
- * @deprecated use {@link WebServerSide} and/or {@link ComputeEngineSide} instead
+ * @since 5.5
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Deprecated
-public @interface ServerSide {
+public @interface WebServerSide {
 }
