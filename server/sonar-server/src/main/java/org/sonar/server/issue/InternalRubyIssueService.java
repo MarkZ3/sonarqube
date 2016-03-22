@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
 import org.sonar.api.issue.ActionPlan;
 import org.sonar.api.issue.Issue;
 import org.sonar.api.issue.IssueComment;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.SonarException;
 import org.sonar.api.web.UserRole;
 import org.sonar.core.issue.ActionPlanStats;
@@ -62,7 +62,7 @@ import org.sonarqube.ws.client.issue.IssueFilterParameters;
  *
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
 public class InternalRubyIssueService {
 
   private static final String ID_PARAM = "id";

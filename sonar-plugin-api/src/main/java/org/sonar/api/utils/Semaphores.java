@@ -21,7 +21,7 @@ package org.sonar.api.utils;
 
 import java.util.Date;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * A semaphore shared among all the processes that can connect to the central database.
@@ -29,7 +29,7 @@ import org.sonar.api.server.ServerSide;
  * @since 3.4
  * @deprecated in 5.2 as batch analyzer does not connect to database anymore
  */
-@ServerSide
+@WebServerSide
 @Deprecated
 public interface Semaphores {
 

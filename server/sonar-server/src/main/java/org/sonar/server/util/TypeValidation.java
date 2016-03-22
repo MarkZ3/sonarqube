@@ -19,13 +19,11 @@
  */
 package org.sonar.server.util;
 
-import org.sonar.api.server.ServerSide;
-
-import javax.annotation.Nullable;
-
 import java.util.List;
+import javax.annotation.Nullable;
+import org.sonar.api.server.WebServerSide;
 
-@ServerSide
+@WebServerSide
 public interface TypeValidation {
 
   String key();

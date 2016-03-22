@@ -24,20 +24,19 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import javax.annotation.CheckForNull;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
-import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.utils.DateUtils;
-
-import javax.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nullable;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
+import org.sonar.api.batch.BatchSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.api.utils.DateUtils;
 
 /**
  * Project settings on batch side, or global settings on server side. This component does not access to database, so
@@ -87,7 +86,8 @@ import java.util.Properties;
  * @since 2.12
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class Settings {
 
   protected Map<String, String> properties;

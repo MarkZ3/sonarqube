@@ -20,12 +20,12 @@
 package org.sonar.api.security;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.14
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public abstract class SecurityRealm {
 

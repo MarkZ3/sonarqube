@@ -21,7 +21,7 @@ package org.sonar.server.measure.custom.ws;
 
 import org.sonar.api.PropertyType;
 import org.sonar.api.measures.Metric;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.web.UserRole;
 import org.sonar.core.permission.GlobalPermissions;
 import org.sonar.db.component.ComponentDto;
@@ -30,7 +30,7 @@ import org.sonar.db.metric.MetricDto;
 import org.sonar.server.user.UserSession;
 import org.sonar.server.util.TypeValidations;
 
-@ServerSide
+@WebServerSide
 public class CustomMeasureValidator {
   private final TypeValidations typeValidations;
 

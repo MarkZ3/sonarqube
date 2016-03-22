@@ -37,13 +37,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.14
  */
 @Beta
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class ResourceTypes {
 
   public static final Predicate<ResourceType> AVAILABLE_FOR_FILTERS = new Predicate<ResourceType>() {

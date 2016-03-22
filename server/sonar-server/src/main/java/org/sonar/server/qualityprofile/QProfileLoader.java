@@ -28,7 +28,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.RuleStatus;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.qualityprofile.ActiveRuleKey;
@@ -40,7 +40,7 @@ import org.sonar.server.rule.index.RuleIndex;
 import org.sonar.server.rule.index.RuleQuery;
 import org.sonar.server.search.FacetValue;
 
-@ServerSide
+@WebServerSide
 public class QProfileLoader {
 
   private final DbClient dbClient;

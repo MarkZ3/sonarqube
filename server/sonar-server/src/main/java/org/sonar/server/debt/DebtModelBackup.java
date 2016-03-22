@@ -27,7 +27,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.debt.DebtRemediationFunction;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.utils.System2;
@@ -47,7 +47,7 @@ import org.sonar.server.user.UserSession;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class DebtModelBackup {
 
   private static final Logger LOG = Loggers.get(DebtModelBackup.class);

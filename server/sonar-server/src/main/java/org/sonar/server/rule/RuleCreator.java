@@ -29,7 +29,7 @@ import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.rule.Severity;
 import org.sonar.api.rules.RuleType;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.rule.RuleParamType;
 import org.sonar.api.utils.System2;
 import org.sonar.db.DbClient;
@@ -46,7 +46,7 @@ import org.sonar.server.util.TypeValidations;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class RuleCreator {
 
   private final System2 system2;

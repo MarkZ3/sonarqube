@@ -19,15 +19,16 @@
  */
 package org.sonar.api.platform;
 
-import org.sonar.api.server.ServerSide;
-
 import java.io.File;
 import java.util.List;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.3
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface ServerFileSystem {
 
   File getHomeDir();

@@ -31,12 +31,12 @@ import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.StringUtils;
 import org.picocontainer.Startable;
 import org.sonar.api.platform.Server;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * JAR files to be downloaded by sonar-runner.
  */
-@ServerSide
+@WebServerSide
 public class BatchIndex implements Startable {
 
   private final Server server;

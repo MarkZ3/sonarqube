@@ -20,7 +20,8 @@
 package org.sonar.api.notifications;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * <p>
@@ -35,7 +36,8 @@ import org.sonar.api.server.ServerSide;
  * 
  * @since 2.10
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public abstract class NotificationChannel {
 

@@ -24,13 +24,13 @@ import java.util.Collection;
 import java.util.Map;
 import org.sonar.api.issue.Issue;
 import org.sonar.api.issue.condition.IsUnResolved;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.user.User;
 import org.sonar.api.user.UserFinder;
 import org.sonar.core.issue.DefaultIssue;
 import org.sonar.server.user.UserSession;
 
-@ServerSide
+@WebServerSide
 public class AssignAction extends Action {
 
   private static final String ASSIGN_KEY = "assign";

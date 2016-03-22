@@ -21,9 +21,9 @@ package org.sonar.server.qualityprofile;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.sonar.api.server.ServerSide;
-
 import java.util.Collection;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Used to list default profile names.
@@ -31,7 +31,8 @@ import java.util.Collection;
  * It should be removed as soon as a new API to define quality profiles is created. Currently loading all definitions
  * just to get the profile names is too slow (see {@link org.sonar.api.profiles.ProfileDefinition}).
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class BuiltInProfiles {
 
   // built-in profile names grouped by language

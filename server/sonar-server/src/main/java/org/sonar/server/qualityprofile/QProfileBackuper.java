@@ -41,7 +41,7 @@ import org.codehaus.staxmate.SMInputFactory;
 import org.codehaus.staxmate.in.SMHierarchicCursor;
 import org.codehaus.staxmate.in.SMInputCursor;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.text.XmlWriter;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -49,7 +49,7 @@ import org.sonar.db.qualityprofile.ActiveRuleDto;
 import org.sonar.db.qualityprofile.ActiveRuleParamDto;
 import org.sonar.db.qualityprofile.QualityProfileDto;
 
-@ServerSide
+@WebServerSide
 public class QProfileBackuper {
 
   private final QProfileReset reset;

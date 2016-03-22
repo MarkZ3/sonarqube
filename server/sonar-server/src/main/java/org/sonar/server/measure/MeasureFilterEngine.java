@@ -20,17 +20,15 @@
 package org.sonar.server.measure;
 
 import com.google.common.base.Joiner;
-import org.sonar.api.server.ServerSide;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.Nullable;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.api.utils.log.Profiler;
 
-import javax.annotation.Nullable;
-
-import java.util.List;
-import java.util.Map;
-
-@ServerSide
+@WebServerSide
 public class MeasureFilterEngine {
 
   private static final Logger LOG = Loggers.get("MeasureFilter");

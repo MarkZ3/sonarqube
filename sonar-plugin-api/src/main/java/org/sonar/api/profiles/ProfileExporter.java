@@ -25,13 +25,15 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.sonar.api.ExtensionPoint;
 import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.3
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public abstract class ProfileExporter {
 

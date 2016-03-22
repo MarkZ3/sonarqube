@@ -20,13 +20,13 @@
 package org.sonar.plugins.emailnotifications.api;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.notifications.Notification;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.10
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public abstract class EmailTemplate {
 

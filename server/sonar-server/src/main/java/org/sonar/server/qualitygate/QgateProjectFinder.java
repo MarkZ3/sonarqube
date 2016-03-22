@@ -19,7 +19,8 @@
  */
 package org.sonar.server.qualitygate;
 
-import org.sonar.api.server.ServerSide;
+import java.util.List;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.qualitygate.ProjectQgateAssociation;
 import org.sonar.db.qualitygate.ProjectQgateAssociationDao;
 import org.sonar.db.qualitygate.ProjectQgateAssociationDto;
@@ -28,11 +29,9 @@ import org.sonar.db.qualitygate.QualityGateDao;
 import org.sonar.db.qualitygate.QualityGateDto;
 import org.sonar.server.exceptions.NotFoundException;
 
-import java.util.List;
-
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class QgateProjectFinder {
 
   public static class Association {

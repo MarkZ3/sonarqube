@@ -20,14 +20,14 @@
 package org.sonar.api.web;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * This extension point must be implemented to define a new filter.
  *
  * @since 3.1
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public abstract class FilterTemplate {
 

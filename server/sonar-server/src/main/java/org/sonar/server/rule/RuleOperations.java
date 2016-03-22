@@ -23,7 +23,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.debt.DebtRemediationFunction;
 import org.sonar.api.server.debt.internal.DefaultDebtRemediationFunction;
 import org.sonar.core.permission.GlobalPermissions;
@@ -39,7 +39,7 @@ import org.sonar.server.user.UserSession;
  * @deprecated to be dropped in 4.4
  */
 @Deprecated
-@ServerSide
+@WebServerSide
 public class RuleOperations {
 
   private final RuleIndexer ruleIndexer;

@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.text.JsonWriter;
 import org.sonar.server.search.BaseDoc;
 import org.sonar.server.search.IndexUtils;
@@ -34,7 +34,7 @@ import org.sonar.server.search.QueryContext;
 /**
  * Mapping of search documents (see {@link org.sonar.server.search.BaseDoc}) to WS JSON responses
  */
-@ServerSide
+@WebServerSide
 public abstract class BaseMapping<DOC extends BaseDoc, CTX> {
 
   private final Multimap<String, String> indexFieldsByWsFields = LinkedHashMultimap.create();

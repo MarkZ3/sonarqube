@@ -33,7 +33,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.sonar.api.CoreProperties;
 import org.sonar.api.config.Settings;
 import org.sonar.api.platform.NewUserHandler;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.System2;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -50,7 +50,7 @@ import org.sonar.server.util.Validation;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class UserUpdater {
 
   public static final String SQ_AUTHORITY = "sonarqube";

@@ -19,15 +19,17 @@
  */
 package org.sonar.api;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Same than {@link org.sonar.api.BatchComponent} but for server-side components.
  *
  * @since 2.2
- * @deprecated since 5.2 use {@link ServerSide} annotation
+ * @deprecated since 5.5 use {@link WebServerSide} or {@link ComputeEngineSide} annotation
  */
 @Deprecated
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface ServerComponent {
 }

@@ -25,7 +25,8 @@ import org.sonar.api.CoreProperties;
 import org.sonar.api.batch.BatchSide;
 import org.sonar.api.config.Settings;
 import org.sonar.api.i18n.I18n;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Used through ruby code <pre>Internal.durations</pre>
@@ -33,7 +34,8 @@ import org.sonar.api.server.ServerSide;
  * @since 4.3
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class Durations {
 
   public enum DurationFormat {

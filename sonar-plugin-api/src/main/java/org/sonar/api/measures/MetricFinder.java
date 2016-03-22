@@ -19,13 +19,12 @@
  */
 package org.sonar.api.measures;
 
-import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
-
-import javax.annotation.CheckForNull;
-
 import java.util.Collection;
 import java.util.List;
+import javax.annotation.CheckForNull;
+import org.sonar.api.batch.BatchSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.5
@@ -33,7 +32,8 @@ import java.util.List;
  */
 @Deprecated
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface MetricFinder {
 
   @CheckForNull

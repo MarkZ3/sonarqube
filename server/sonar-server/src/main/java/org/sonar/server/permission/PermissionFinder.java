@@ -26,7 +26,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import org.sonar.api.security.DefaultGroups;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.Paging;
 import org.sonar.core.permission.GlobalPermissions;
 import org.sonar.db.DbClient;
@@ -44,7 +44,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.apache.commons.lang.StringUtils.containsIgnoreCase;
 import static org.sonar.api.utils.Paging.forPageIndex;
 
-@ServerSide
+@WebServerSide
 public class PermissionFinder {
 
   private final PermissionDao permissionDao;

@@ -20,12 +20,11 @@
 package org.sonar.server.text;
 
 import com.google.common.collect.ImmutableList;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.platform.Server;
-
 import java.util.List;
+import org.sonar.api.platform.Server;
+import org.sonar.api.server.WebServerSide;
 
-@ServerSide
+@WebServerSide
 public class MacroInterpreter {
 
   private final List<Macro> macros;

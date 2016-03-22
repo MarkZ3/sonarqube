@@ -34,7 +34,7 @@ import org.apache.commons.lang.StringUtils;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Metric;
 import org.sonar.api.measures.MetricFinder;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.DateUtils;
 import org.sonar.api.utils.System2;
 
@@ -42,7 +42,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
 import static java.util.Collections.singletonList;
 
-@ServerSide
+@WebServerSide
 public class MeasureFilterFactory {
 
   private final MetricFinder metricFinder;

@@ -21,12 +21,14 @@ package org.sonar.api.issue.action;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class Actions {
 
   private final List<Action> list = new ArrayList<>();

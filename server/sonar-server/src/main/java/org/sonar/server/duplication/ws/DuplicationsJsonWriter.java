@@ -24,7 +24,7 @@ import com.google.common.base.Optional;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.text.JsonWriter;
 import org.sonar.db.DbSession;
 import org.sonar.db.component.ComponentDao;
@@ -32,7 +32,7 @@ import org.sonar.db.component.ComponentDto;
 
 import static com.google.common.collect.Maps.newHashMap;
 
-@ServerSide
+@WebServerSide
 public class DuplicationsJsonWriter {
 
   private final ComponentDao componentDao;

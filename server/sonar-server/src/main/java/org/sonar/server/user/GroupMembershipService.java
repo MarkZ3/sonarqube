@@ -20,14 +20,14 @@
 package org.sonar.server.user;
 
 import java.util.Map;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.user.GroupMembershipQuery;
 import org.sonar.server.util.RubyUtils;
 
 /**
  * Used by ruby code <pre>Internal.group_membership</pre>
  */
-@ServerSide
+@WebServerSide
 public class GroupMembershipService {
 
   private static final String SELECTED_MEMBERSHIP = "selected";

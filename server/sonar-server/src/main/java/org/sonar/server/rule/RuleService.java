@@ -22,7 +22,7 @@ package org.sonar.server.rule;
 import java.util.Set;
 import javax.annotation.Nullable;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.permission.GlobalPermissions;
 import org.sonar.server.es.SearchIdResult;
 import org.sonar.server.es.SearchOptions;
@@ -34,7 +34,7 @@ import org.sonar.server.user.UserSession;
 /**
  * @since 4.4
  */
-@ServerSide
+@WebServerSide
 public class RuleService {
 
   private final RuleUpdater ruleUpdater;

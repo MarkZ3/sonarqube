@@ -19,14 +19,14 @@
  */
 package org.sonar.server.user;
 
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.platform.NewUserHandler;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Loggers;
 
 /**
  * @since 3.2
  */
-@ServerSide
+@WebServerSide
 public class NewUserNotifier {
 
   private NewUserHandler[] handlers;

@@ -25,8 +25,8 @@ import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
 import org.apache.commons.lang.StringUtils;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.i18n.I18n;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.Duration;
 import org.sonar.api.utils.Durations;
 import org.sonar.server.user.UserSession;
@@ -36,7 +36,7 @@ import org.sonar.server.user.UserSession;
  *
  * Bridge between JRuby webapp and Java I18n component
  */
-@ServerSide
+@WebServerSide
 public class JRubyI18n {
 
   private final I18n i18n;

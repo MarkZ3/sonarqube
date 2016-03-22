@@ -21,11 +21,13 @@ package org.sonar.server.properties;
 
 import java.util.List;
 import org.sonar.api.config.Settings;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.property.PropertiesDao;
 import org.sonar.db.property.PropertyDto;
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class ProjectSettingsFactory {
 
   private final PropertiesDao dao;

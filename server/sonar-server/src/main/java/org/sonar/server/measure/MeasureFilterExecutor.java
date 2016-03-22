@@ -20,19 +20,18 @@
 package org.sonar.server.measure;
 
 import com.google.common.base.Strings;
-import org.apache.commons.dbutils.DbUtils;
-import org.apache.ibatis.session.SqlSession;
-import org.sonar.api.server.ServerSide;
-import org.sonar.db.Database;
-import org.sonar.db.MyBatis;
-import org.sonar.db.component.ResourceDao;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
+import org.apache.commons.dbutils.DbUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.db.Database;
+import org.sonar.db.MyBatis;
+import org.sonar.db.component.ResourceDao;
 
-@ServerSide
+@WebServerSide
 public class MeasureFilterExecutor {
 
   private MyBatis mybatis;

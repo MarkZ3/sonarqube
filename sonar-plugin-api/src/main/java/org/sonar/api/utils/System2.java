@@ -27,7 +27,8 @@ import java.util.TimeZone;
 import javax.annotation.CheckForNull;
 import org.apache.commons.lang.SystemUtils;
 import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Proxy over {@link java.lang.System}. It aims to improve testability of classes
@@ -63,7 +64,8 @@ import org.sonar.api.server.ServerSide;
  * @since 4.2
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class System2 {
 
   public static final System2 INSTANCE = new System2();

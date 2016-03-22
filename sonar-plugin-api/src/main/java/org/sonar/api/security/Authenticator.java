@@ -20,17 +20,16 @@
 package org.sonar.api.security;
 
 import com.google.common.base.Preconditions;
-import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
-
 import javax.annotation.Nullable;
 import javax.servlet.http.HttpServletRequest;
+import org.sonar.api.ExtensionPoint;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @see SecurityRealm
  * @since 3.1
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public abstract class Authenticator {
 

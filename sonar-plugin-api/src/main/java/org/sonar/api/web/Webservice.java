@@ -20,7 +20,7 @@
 package org.sonar.api.web;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Interface to create a web service extension point
@@ -29,7 +29,7 @@ import org.sonar.api.server.ServerSide;
  * @deprecated in 4.2. Replaced by {@link org.sonar.api.server.ws.WebService}
  */
 @Deprecated
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public interface Webservice {
 

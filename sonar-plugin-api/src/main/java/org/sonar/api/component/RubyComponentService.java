@@ -19,14 +19,13 @@
  */
 package org.sonar.api.component;
 
-import org.sonar.api.server.ServerSide;
-
 import javax.annotation.CheckForNull;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
 public interface RubyComponentService {
 
   @CheckForNull

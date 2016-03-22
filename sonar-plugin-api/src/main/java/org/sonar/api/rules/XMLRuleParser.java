@@ -24,20 +24,6 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.io.Closeables;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.CharEncoding;
-import org.apache.commons.lang.StringUtils;
-import org.codehaus.staxmate.SMInputFactory;
-import org.codehaus.staxmate.in.SMHierarchicCursor;
-import org.codehaus.staxmate.in.SMInputCursor;
-import org.sonar.api.PropertyType;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.utils.SonarException;
-import org.sonar.check.Cardinality;
-
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamException;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,13 +32,27 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.CharEncoding;
+import org.apache.commons.lang.StringUtils;
+import org.codehaus.staxmate.SMInputFactory;
+import org.codehaus.staxmate.in.SMHierarchicCursor;
+import org.codehaus.staxmate.in.SMInputCursor;
+import org.sonar.api.PropertyType;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.api.utils.SonarException;
+import org.sonar.check.Cardinality;
 
 /**
  * @since 2.3
  * @deprecated in 4.2. Replaced by org.sonar.api.server.rule.RulesDefinition and org.sonar.api.server.rule.RulesDefinitionXmlLoader
  */
 @Deprecated
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public final class XMLRuleParser {
   private static final Map<String, String> TYPE_MAP = typeMapWithDeprecatedValues();
 

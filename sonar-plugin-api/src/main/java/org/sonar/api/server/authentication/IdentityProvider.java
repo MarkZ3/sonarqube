@@ -19,7 +19,7 @@
  */
 package org.sonar.api.server.authentication;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Entry-point to define a new Identity provider.
@@ -31,7 +31,7 @@ import org.sonar.api.server.ServerSide;
  *
  * @since 5.4
  */
-@ServerSide
+@WebServerSide
 public interface IdentityProvider {
 
   /**

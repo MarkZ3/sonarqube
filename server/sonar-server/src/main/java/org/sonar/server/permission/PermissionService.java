@@ -20,7 +20,7 @@
 package org.sonar.server.permission;
 
 import java.util.List;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.permission.GlobalPermissions;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -34,7 +34,7 @@ import org.sonar.server.user.UserSession;
 import static org.sonar.server.permission.PermissionPrivilegeChecker.checkGlobalAdminUser;
 import static org.sonar.server.permission.PermissionPrivilegeChecker.checkProjectAdminUserByComponentKey;
 
-@ServerSide
+@WebServerSide
 public class PermissionService {
 
   private final DbClient dbClient;

@@ -26,7 +26,7 @@ import javax.annotation.CheckForNull;
 import org.picocontainer.Startable;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.RuleStatus;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.debt.DebtRemediationFunction;
 import org.sonar.api.server.debt.internal.DefaultDebtRemediationFunction;
 import org.sonar.db.DbClient;
@@ -47,7 +47,7 @@ import org.sonar.server.util.RubyUtils;
  * @deprecated in 4.4 because Ruby on Rails is deprecated too !
  */
 @Deprecated
-@ServerSide
+@WebServerSide
 public class RubyRuleService implements Startable {
 
   private final DbClient dbClient;

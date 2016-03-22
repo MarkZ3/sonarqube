@@ -38,7 +38,8 @@ import org.picocontainer.lifecycle.ReflectionLifecycleStrategy;
 import org.picocontainer.monitors.NullComponentMonitor;
 import org.sonar.api.batch.BatchSide;
 import org.sonar.api.config.PropertyDefinitions;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.api.utils.log.Profiler;
 
@@ -46,7 +47,8 @@ import static com.google.common.collect.ImmutableList.copyOf;
 import static java.util.Objects.requireNonNull;
 
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class ComponentContainer implements ContainerPopulator.Container {
 
   private static final class ExtendedDefaultPicoContainer extends DefaultPicoContainer {

@@ -20,7 +20,7 @@
 package org.sonar.server.user;
 
 import java.util.List;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.user.GroupMembership;
 import org.sonar.db.user.GroupMembershipDao;
 import org.sonar.db.user.GroupMembershipDto;
@@ -31,7 +31,7 @@ import org.sonar.server.exceptions.NotFoundException;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class GroupMembershipFinder {
 
   public static class Membership {

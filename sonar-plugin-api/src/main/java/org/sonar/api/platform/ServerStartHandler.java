@@ -20,12 +20,14 @@
 package org.sonar.api.platform;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.2
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public interface ServerStartHandler {
 

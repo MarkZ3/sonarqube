@@ -37,13 +37,13 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.xml.sax.InputSource;
 
 /**
  * Export characteristics and rule debt definitions to XML
  */
-@ServerSide
+@WebServerSide
 public class DebtModelXMLExporter {
 
   private static final String ROOT = "sqale";

@@ -20,7 +20,8 @@
 package org.sonar.api.profiles;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.ValidationMessages;
 
 /**
@@ -29,7 +30,8 @@ import org.sonar.api.utils.ValidationMessages;
  *
  * @since 2.3
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public abstract class ProfileDefinition {
 

@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.Paging;
 import org.sonar.core.permission.GlobalPermissions;
 import org.sonar.db.DbClient;
@@ -50,7 +50,7 @@ import org.sonarqube.ws.client.issue.IssueFilterParameters;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class IssueFilterService {
 
   private final IssueFilterDao filterDao;

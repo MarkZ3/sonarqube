@@ -22,7 +22,8 @@ package org.sonar.db.purge.period;
 import com.google.common.annotations.VisibleForTesting;
 import java.util.List;
 import org.sonar.api.config.Settings;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.DateUtils;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -32,7 +33,8 @@ import org.sonar.db.purge.PurgeProfiler;
 import org.sonar.db.purge.PurgeSnapshotQuery;
 import org.sonar.db.purge.PurgeableSnapshotDto;
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class DefaultPeriodCleaner {
 
   private static final Logger LOG = Loggers.get(DefaultPeriodCleaner.class);

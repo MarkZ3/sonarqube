@@ -19,9 +19,9 @@
  */
 package org.sonar.server.qualityprofile.ws;
 
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.Severity;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.ws.Request;
 import org.sonar.api.server.ws.RequestHandler;
 import org.sonar.api.server.ws.Response;
@@ -31,7 +31,7 @@ import org.sonar.db.qualityprofile.ActiveRuleKey;
 import org.sonar.server.qualityprofile.QProfileService;
 import org.sonar.server.qualityprofile.RuleActivation;
 
-@ServerSide
+@WebServerSide
 public class RuleActivationActions {
 
   public static final String PROFILE_KEY = "profile_key";

@@ -20,8 +20,8 @@
 package org.sonar.api.security;
 
 import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.resources.Resource;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Grant access to newly created projects.
@@ -31,7 +31,7 @@ import org.sonar.api.resources.Resource;
  * @since 3.2
  */
 @BatchSide
-@ServerSide
+@WebServerSide
 public interface ResourcePermissions {
 
   /**

@@ -20,21 +20,20 @@
 package org.sonar.api.config;
 
 import com.google.common.base.Strings;
-import org.apache.commons.lang.StringUtils;
-import org.sonar.api.batch.BatchSide;
-import org.sonar.api.CoreProperties;
-import org.sonar.api.Properties;
-import org.sonar.api.Property;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.utils.AnnotationUtils;
-
-import javax.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.Nullable;
+import org.apache.commons.lang.StringUtils;
+import org.sonar.api.CoreProperties;
+import org.sonar.api.Properties;
+import org.sonar.api.Property;
+import org.sonar.api.batch.BatchSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.api.utils.AnnotationUtils;
 
 /**
  * Metadata of all the properties declared by plugins
@@ -42,7 +41,8 @@ import java.util.Map;
  * @since 2.12
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public final class PropertyDefinitions {
 
   private final Map<String, PropertyDefinition> definitions = new HashMap<>();

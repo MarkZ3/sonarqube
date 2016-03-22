@@ -20,7 +20,7 @@
 package org.sonar.server.issue;
 
 import org.sonar.api.rules.RuleFinder;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.issue.DefaultIssue;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -31,7 +31,7 @@ import org.sonar.server.issue.index.IssueIndexer;
 /**
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
 public class ServerIssueStorage extends IssueStorage {
 
   private final IssueIndexer indexer;

@@ -19,11 +19,11 @@
  */
 package org.sonar.server.computation.dbcleaner;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.purge.PurgeListener;
 import org.sonar.server.test.index.TestIndexer;
 
-@ServerSide
+@WebServerSide
 public class IndexPurgeListener implements PurgeListener {
   private final TestIndexer testIndexer;
 

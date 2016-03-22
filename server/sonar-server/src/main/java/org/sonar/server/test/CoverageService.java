@@ -23,7 +23,7 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import javax.annotation.CheckForNull;
 import org.sonar.api.measures.CoreMetrics;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.KeyValueFormat;
 import org.sonar.api.web.UserRole;
 import org.sonar.db.DbSession;
@@ -32,7 +32,7 @@ import org.sonar.db.measure.MeasureDao;
 import org.sonar.db.measure.MeasureDto;
 import org.sonar.server.user.UserSession;
 
-@ServerSide
+@WebServerSide
 public class CoverageService {
 
   public enum TYPE {

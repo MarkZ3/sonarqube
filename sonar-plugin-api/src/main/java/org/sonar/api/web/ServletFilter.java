@@ -21,15 +21,14 @@ package org.sonar.api.web;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
-import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
-
 import javax.servlet.Filter;
+import org.sonar.api.ExtensionPoint;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 3.1
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public abstract class ServletFilter implements Filter {
 

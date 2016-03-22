@@ -19,19 +19,20 @@
  */
 package org.sonar.api.measures;
 
-import org.sonar.api.batch.BatchSide;
-import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.batch.InstantiationStrategy;
-
 import java.util.List;
+import org.sonar.api.ExtensionPoint;
+import org.sonar.api.batch.BatchSide;
+import org.sonar.api.batch.InstantiationStrategy;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 1.10
  */
 @BatchSide
 @InstantiationStrategy(InstantiationStrategy.PER_BATCH)
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public interface Metrics {
   List<Metric> getMetrics();

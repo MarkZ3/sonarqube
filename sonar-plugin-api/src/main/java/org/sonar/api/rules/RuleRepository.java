@@ -19,20 +19,21 @@
  */
 package org.sonar.api.rules;
 
+import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
-
-import java.util.List;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.3
  * @deprecated in 4.2. Replaced by org.sonar.api.server.rule.RulesDefinition
  */
 @Deprecated
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public abstract class RuleRepository {
 

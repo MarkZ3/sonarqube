@@ -33,7 +33,8 @@ import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.rules.RuleParam;
 import org.sonar.api.rules.RuleRepository;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.debt.DebtRemediationFunction;
 import org.sonar.api.server.rule.RuleParamType;
 import org.sonar.api.server.rule.RulesDefinition;
@@ -51,7 +52,8 @@ import static com.google.common.collect.Lists.newArrayList;
 /**
  * Inject deprecated RuleRepository into {@link org.sonar.api.server.rule.RulesDefinition} for backward-compatibility.
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class DeprecatedRulesDefinitionLoader {
 
   private static final Logger LOG = Loggers.get(DeprecatedRulesDefinitionLoader.class);

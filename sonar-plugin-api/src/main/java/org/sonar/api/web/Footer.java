@@ -20,12 +20,12 @@
 package org.sonar.api.web;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 1.10
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public interface Footer {
 

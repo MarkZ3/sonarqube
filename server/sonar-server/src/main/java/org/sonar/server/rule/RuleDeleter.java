@@ -21,7 +21,7 @@ package org.sonar.server.rule;
 
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.RuleStatus;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.System2;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -30,7 +30,7 @@ import org.sonar.server.qualityprofile.RuleActivator;
 import org.sonar.server.rule.index.RuleDoc;
 import org.sonar.server.rule.index.RuleIndexer;
 
-@ServerSide
+@WebServerSide
 public class RuleDeleter {
 
   private final System2 system2;

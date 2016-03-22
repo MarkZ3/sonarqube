@@ -24,10 +24,10 @@ import com.google.common.collect.Iterables;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.server.exceptions.BadRequestException;
 
-@ServerSide
+@WebServerSide
 public class TypeValidations {
 
   private final List<TypeValidation> typeValidationList;

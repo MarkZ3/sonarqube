@@ -23,20 +23,19 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.NumberUtils;
-import org.sonar.api.batch.BatchSide;
-import org.sonar.api.ExtensionPoint;
-import org.sonar.api.Property;
-import org.sonar.api.PropertyType;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.resources.Qualifiers;
-
-import javax.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.annotation.Nullable;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
+import org.sonar.api.ExtensionPoint;
+import org.sonar.api.Property;
+import org.sonar.api.PropertyType;
+import org.sonar.api.batch.BatchSide;
+import org.sonar.api.resources.Qualifiers;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Declare a plugin property. Values are available at runtime through the component {@link Settings}.
@@ -69,7 +68,8 @@ import java.util.List;
  * @since 3.6
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public final class PropertyDefinition {
 

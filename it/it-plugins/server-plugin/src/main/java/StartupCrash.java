@@ -19,10 +19,12 @@
  */
 
 import org.sonar.api.config.Settings;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class StartupCrash {
 
   private final Settings settings;

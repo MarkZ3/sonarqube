@@ -23,7 +23,8 @@ import java.util.List;
 import org.sonar.api.resources.ResourceType;
 import org.sonar.api.resources.ResourceTypes;
 import org.sonar.api.resources.Scopes;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.MyBatis;
@@ -32,7 +33,8 @@ import org.sonar.server.issue.index.IssueAuthorizationIndexer;
 import org.sonar.server.issue.index.IssueIndexer;
 import org.sonar.server.test.index.TestIndexer;
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class ComponentCleanerService {
 
   private final DbClient dbClient;

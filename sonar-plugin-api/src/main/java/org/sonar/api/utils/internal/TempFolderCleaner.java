@@ -19,10 +19,10 @@
  */
 package org.sonar.api.utils.internal;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.TempFolder;
 
-@ServerSide
+@WebServerSide
 public class TempFolderCleaner {
 
   private TempFolder defaultTempFolder;

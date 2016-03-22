@@ -27,7 +27,8 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.TempFolder;
 import org.sonar.classloader.ClassloaderBuilder;
 import org.sonar.classloader.Mask;
@@ -46,7 +47,8 @@ import static org.sonar.classloader.ClassloaderBuilder.LoadingOrder.SELF_FIRST;
  * </ul>
  */
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class PluginClassloaderFactory {
 
   // underscores are used to not conflict with plugin keys (if someday a plugin key is "api")

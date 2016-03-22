@@ -19,13 +19,14 @@
  */
 package org.sonar.api;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Server extension point.
  *
  * @since 1.10
- * @deprecated since 5.2 replaced by {@link ServerSide} and {@link ExtensionPoint} annotations
+ * @deprecated since 5.5 replaced by {@link WebServerSide} or {@link ComputeEngineSide} and {@link ExtensionPoint} annotations
  */
 @Deprecated
 public interface ServerExtension extends Extension, ServerComponent {

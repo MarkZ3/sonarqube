@@ -19,14 +19,13 @@
  */
 package org.sonar.api.rules;
 
+import java.util.Collection;
+import javax.annotation.CheckForNull;
 import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.batch.rule.ActiveRules;
 import org.sonar.api.rule.RuleKey;
-
-import javax.annotation.CheckForNull;
-
-import java.util.Collection;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.3
@@ -34,7 +33,8 @@ import java.util.Collection;
  */
 @Deprecated
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface RuleFinder {
 
   /**

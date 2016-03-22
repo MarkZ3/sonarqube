@@ -33,7 +33,7 @@ import javax.annotation.Nonnull;
 import org.sonar.api.resources.Language;
 import org.sonar.api.resources.Languages;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.db.DbClient;
@@ -60,7 +60,7 @@ import static java.util.Collections.singletonList;
  * Add details about active rules to api/rules/search and api/rules/show
  * web services.
  */
-@ServerSide
+@WebServerSide
 public class ActiveRuleCompleter {
 
   private static final Logger LOG = Loggers.get(ActiveRuleCompleter.class);

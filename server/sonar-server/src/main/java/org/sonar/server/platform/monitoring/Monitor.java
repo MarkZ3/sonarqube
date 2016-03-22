@@ -19,15 +19,16 @@
  */
 package org.sonar.server.platform.monitoring;
 
-import org.sonar.api.server.ServerSide;
+import java.util.LinkedHashMap;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.server.platform.ws.InfoAction;
 
-import java.util.LinkedHashMap;
-
 /**
- * Any component that is involved in the informations returned by the web service api/system/info
+ * Any component that is involved in the information returned by the web service api/system/info
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface Monitor {
   /**
    * Name of section in System Info page

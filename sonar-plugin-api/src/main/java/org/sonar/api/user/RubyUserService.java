@@ -19,17 +19,15 @@
  */
 package org.sonar.api.user;
 
-import org.sonar.api.server.ServerSide;
-
-import javax.annotation.CheckForNull;
-
 import java.util.List;
 import java.util.Map;
+import javax.annotation.CheckForNull;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
 public interface RubyUserService {
 
   @CheckForNull

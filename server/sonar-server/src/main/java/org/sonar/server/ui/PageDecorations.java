@@ -19,16 +19,15 @@
  */
 package org.sonar.server.ui;
 
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.web.PageDecoration;
-
 import java.util.Collections;
 import java.util.List;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.api.web.PageDecoration;
 
 /**
  * @since 3.3
  */
-@ServerSide
+@WebServerSide
 public final class PageDecorations {
 
   private final PageDecoration[] decorations;

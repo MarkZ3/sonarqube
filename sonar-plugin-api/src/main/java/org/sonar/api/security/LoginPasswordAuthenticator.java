@@ -20,7 +20,7 @@
 package org.sonar.api.security;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 1.12
@@ -28,7 +28,7 @@ import org.sonar.api.server.ServerSide;
  * @deprecated replaced by Authenticator in version 3.1
  */
 @Deprecated
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public interface LoginPasswordAuthenticator {
 

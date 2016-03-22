@@ -42,7 +42,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 
@@ -112,7 +112,7 @@ import static java.lang.String.format;
  *
  * @since 4.2
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public interface WebService extends Definable<WebService.Context> {
 

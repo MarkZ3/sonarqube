@@ -22,22 +22,21 @@ package org.sonar.server.issue;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.issue.Issue;
-import org.sonar.api.issue.condition.Condition;
-import org.sonar.core.issue.IssueChangeContext;
-import org.sonar.server.user.UserSession;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import org.sonar.api.issue.Issue;
+import org.sonar.api.issue.condition.Condition;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.core.issue.IssueChangeContext;
+import org.sonar.server.user.UserSession;
 
 import static com.google.common.collect.Lists.newArrayList;
 
 /**
  * @since 3.7
  */
-@ServerSide
+@WebServerSide
 public abstract class Action {
 
   private final String key;

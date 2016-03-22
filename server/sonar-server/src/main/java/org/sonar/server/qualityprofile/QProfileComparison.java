@@ -31,14 +31,16 @@ import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.qualityprofile.ActiveRuleDto;
 import org.sonar.db.qualityprofile.ActiveRuleParamDto;
 import org.sonar.db.qualityprofile.QualityProfileDto;
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class QProfileComparison {
 
   private final DbClient dbClient;

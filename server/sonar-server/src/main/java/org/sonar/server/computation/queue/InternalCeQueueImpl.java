@@ -22,8 +22,9 @@ package org.sonar.server.computation.queue;
 import com.google.common.base.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
 import org.sonar.api.utils.System2;
+import org.sonar.ce.monitoring.CEQueueStatus;
 import org.sonar.ce.queue.CeQueueImpl;
 import org.sonar.ce.queue.CeQueueListener;
 import org.sonar.ce.queue.CeTask;
@@ -33,11 +34,10 @@ import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.ce.CeActivityDto;
 import org.sonar.db.ce.CeQueueDto;
-import org.sonar.ce.monitoring.CEQueueStatus;
 
 import static java.lang.String.format;
 
-@ServerSide
+@ComputeEngineSide
 public class InternalCeQueueImpl extends CeQueueImpl implements InternalCeQueue {
 
   private final System2 system2;

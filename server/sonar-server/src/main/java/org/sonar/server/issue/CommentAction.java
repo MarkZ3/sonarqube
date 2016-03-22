@@ -23,11 +23,11 @@ import com.google.common.base.Strings;
 import java.util.Collection;
 import java.util.Map;
 import org.sonar.api.issue.Issue;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.issue.DefaultIssue;
 import org.sonar.server.user.UserSession;
 
-@ServerSide
+@WebServerSide
 public class CommentAction extends Action {
 
   public static final String COMMENT_KEY = "comment";

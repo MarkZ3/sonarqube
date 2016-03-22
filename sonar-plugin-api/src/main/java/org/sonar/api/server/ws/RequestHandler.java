@@ -20,12 +20,12 @@
 package org.sonar.api.server.ws;
 
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 4.2
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public interface RequestHandler {
 

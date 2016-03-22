@@ -30,21 +30,21 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.ce.monitoring.CEQueueStatus;
 import org.sonar.core.util.UuidFactory;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.ce.CeActivityDto;
 import org.sonar.db.ce.CeQueueDto;
 import org.sonar.db.component.ComponentDto;
-import org.sonar.ce.monitoring.CEQueueStatus;
 
 import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Predicates.notNull;
 import static com.google.common.collect.FluentIterable.from;
 import static org.sonar.db.component.ComponentDtoFunctions.toUuid;
 
-@ServerSide
+@ComputeEngineSide
 public class CeQueueImpl implements CeQueue {
 
   private final DbClient dbClient;

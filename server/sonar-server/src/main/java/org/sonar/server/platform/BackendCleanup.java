@@ -26,7 +26,7 @@ import java.sql.Statement;
 import org.apache.commons.dbutils.DbUtils;
 import org.elasticsearch.action.support.IndicesOptions;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.db.DbSession;
 import org.sonar.db.MyBatis;
@@ -35,7 +35,7 @@ import org.sonar.server.es.EsClient;
 import org.sonar.server.issue.index.IssueIndexDefinition;
 import org.sonar.server.view.index.ViewIndexDefinition;
 
-@ServerSide
+@WebServerSide
 public class BackendCleanup {
 
   private static final String[] INSPECTION_TABLES = {

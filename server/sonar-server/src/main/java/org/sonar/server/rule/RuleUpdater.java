@@ -32,7 +32,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.rule.Severity;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.debt.DebtRemediationFunction;
 import org.sonar.api.utils.System2;
 import org.sonar.db.DbClient;
@@ -46,7 +46,7 @@ import org.sonar.server.user.UserSession;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-@ServerSide
+@WebServerSide
 public class RuleUpdater {
 
   private final DbClient dbClient;

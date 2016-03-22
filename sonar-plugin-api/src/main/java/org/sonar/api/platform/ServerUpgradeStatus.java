@@ -19,12 +19,14 @@
  */
 package org.sonar.api.platform;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * @since 2.5
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface ServerUpgradeStatus {
 
   /**

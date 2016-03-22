@@ -35,7 +35,8 @@ import org.codehaus.staxmate.in.SMInputCursor;
 import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.rule.Severity;
 import org.sonar.api.rules.RuleType;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.debt.DebtRemediationFunction;
 import org.sonar.check.Cardinality;
 
@@ -177,7 +178,8 @@ import static org.apache.commons.lang.StringUtils.trim;
  * @see org.sonar.api.server.rule.RulesDefinition
  * @since 4.3
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class RulesDefinitionXmlLoader {
 
   private enum DescriptionFormat {

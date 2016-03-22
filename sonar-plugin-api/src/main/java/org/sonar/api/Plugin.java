@@ -88,9 +88,13 @@ public interface Plugin {
     /**
      * Add an extension as :
      * <ul>
-     *   <li>a Class that is annotated with {@link org.sonar.api.batch.BatchSide} or {@link org.sonar.api.server.ServerSide}.
+     *   <li>a Class that is annotated with {@link org.sonar.api.batch.BatchSide}, {@link org.sonar.api.server.WebServerSide}
+     *   or {@link org.sonar.api.server.ComputeEngineSide}. Deprecated annotation {@link org.sonar.api.server.ServerSide}
+     *   is supported until removal.
      *   The extension will be instantiated once. Its dependencies are injected through constructor parameters.</li>
-     *   <li>an instance that is annotated with {@link org.sonar.api.batch.BatchSide} or {@link org.sonar.api.server.ServerSide}</li>
+     *   <li>an instance that is annotated with {@link org.sonar.api.batch.BatchSide}, {@link org.sonar.api.server.WebServerSide}
+     *   or {@link org.sonar.api.server.ComputeEngineSide}. Deprecated annotation {@link org.sonar.api.server.ServerSide}
+     *   is supported until removal.</li>
      * </ul>
      * Only a single component can be registered for a class. It's not allowed for example to register:
      * <ul>

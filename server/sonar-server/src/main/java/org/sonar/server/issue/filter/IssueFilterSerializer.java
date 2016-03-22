@@ -25,12 +25,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang.StringUtils;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
-@ServerSide
+@WebServerSide
 public class IssueFilterSerializer {
 
   public static final String SEPARATOR = "|";

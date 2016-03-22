@@ -35,7 +35,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codehaus.staxmate.SMInputFactory;
 import org.codehaus.staxmate.in.SMHierarchicCursor;
 import org.codehaus.staxmate.in.SMInputCursor;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbSession;
 import org.sonar.db.component.ComponentDao;
 import org.sonar.db.component.ComponentDto;
@@ -43,7 +43,7 @@ import org.sonar.db.component.ComponentDto;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
-@ServerSide
+@WebServerSide
 public class DuplicationsParser {
 
   private final ComponentDao componentDao;

@@ -19,9 +19,11 @@
  */
 package org.sonar.server.es;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public abstract class BaseIndex {
 
   public static final String SORT_SUFFIX = "sort";

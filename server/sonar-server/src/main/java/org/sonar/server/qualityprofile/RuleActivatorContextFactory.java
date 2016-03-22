@@ -22,7 +22,7 @@ package org.sonar.server.qualityprofile;
 import com.google.common.base.Optional;
 import java.util.Collection;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.qualityprofile.ActiveRuleDto;
@@ -32,7 +32,7 @@ import org.sonar.db.qualityprofile.QualityProfileDto;
 import org.sonar.db.rule.RuleDto;
 import org.sonar.server.exceptions.BadRequestException;
 
-@ServerSide
+@WebServerSide
 public class RuleActivatorContextFactory {
 
   private final DbClient db;

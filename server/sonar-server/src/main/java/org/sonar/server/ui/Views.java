@@ -22,20 +22,18 @@ package org.sonar.server.ui;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.apache.commons.lang.ArrayUtils;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.web.Page;
-import org.sonar.api.web.View;
-import org.sonar.api.web.Widget;
-
-import javax.annotation.Nullable;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.annotation.Nullable;
+import org.apache.commons.lang.ArrayUtils;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.api.web.Page;
+import org.sonar.api.web.View;
+import org.sonar.api.web.Widget;
 import org.sonar.server.user.UserSession;
 
-@ServerSide
+@WebServerSide
 public class Views {
 
   private Map<String, ViewProxy<Page>> pagesPerId = Maps.newHashMap();

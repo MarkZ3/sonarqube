@@ -31,7 +31,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.search.SearchHit;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.permission.GlobalPermissions;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -46,7 +46,7 @@ import org.sonar.server.rule.index.RuleQuery;
 import org.sonar.server.search.Result;
 import org.sonar.server.user.UserSession;
 
-@ServerSide
+@WebServerSide
 public class QProfileService {
 
   private final DbClient db;

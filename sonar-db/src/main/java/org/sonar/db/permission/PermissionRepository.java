@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
 import org.apache.commons.lang.StringUtils;
 import org.sonar.api.config.Settings;
 import org.sonar.api.security.DefaultGroups;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.component.ComponentDto;
@@ -42,7 +43,8 @@ import org.sonar.db.user.UserRoleDto;
  * <p/>
  * WARNING, this class is called by Deveveloper Cockpit to apply default permission template on new developers
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class PermissionRepository {
 
   private final DbClient dbClient;

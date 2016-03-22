@@ -19,22 +19,21 @@
  */
 package org.sonar.server.es;
 
+import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.picocontainer.Startable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
-
-import java.util.Map;
 
 /**
  * Creates/deletes all indices in Elasticsearch during server startup.
  */
-@ServerSide
+@WebServerSide
 public class IndexCreator implements Startable {
 
   private static final Logger LOGGER = Loggers.get(IndexCreator.class);

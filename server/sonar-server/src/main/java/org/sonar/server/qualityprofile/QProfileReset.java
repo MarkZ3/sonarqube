@@ -34,7 +34,7 @@ import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rules.ActiveRule;
 import org.sonar.api.rules.ActiveRuleParam;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.ValidationMessages;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -45,7 +45,7 @@ import org.sonar.db.rule.RuleParamDto;
 import org.sonar.server.exceptions.BadRequestException;
 import org.sonar.server.qualityprofile.index.ActiveRuleIndexer;
 
-@ServerSide
+@WebServerSide
 public class QProfileReset {
 
   private final DbClient db;

@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
 import org.sonar.db.MyBatis;
@@ -44,7 +44,7 @@ import static org.sonar.api.web.UserRole.USER;
 import static org.sonar.core.permission.GlobalPermissions.SCAN_EXECUTION;
 import static org.sonar.server.ws.WsUtils.checkFoundWithOptional;
 
-@ServerSide
+@WebServerSide
 public class ProjectDataLoader {
 
   private final DbClient dbClient;

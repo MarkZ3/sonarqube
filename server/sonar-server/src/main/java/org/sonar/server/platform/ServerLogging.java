@@ -27,13 +27,15 @@ import java.io.File;
 import java.util.Set;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.config.Settings;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.log.LoggerLevel;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.process.LogbackHelper;
 import org.sonar.process.ProcessProperties;
 
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class ServerLogging {
 
   public static final Set<LoggerLevel> ALLOWED_ROOT_LOG_LEVELS = Sets.immutableEnumSet(LoggerLevel.TRACE, LoggerLevel.DEBUG, LoggerLevel.INFO);

@@ -19,23 +19,22 @@
  */
 package org.sonar.server.startup;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.CharUtils;
-import org.sonar.api.server.ServerSide;
-import org.sonar.core.platform.PluginInfo;
-import org.sonar.core.platform.PluginRepository;
-import org.sonar.core.platform.RemotePlugin;
-import org.sonar.server.platform.DefaultServerFileSystem;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.CharUtils;
+import org.sonar.api.server.WebServerSide;
+import org.sonar.core.platform.PluginInfo;
+import org.sonar.core.platform.PluginRepository;
+import org.sonar.core.platform.RemotePlugin;
+import org.sonar.server.platform.DefaultServerFileSystem;
 
-@ServerSide
+@WebServerSide
 public final class GeneratePluginIndex {
 
   private DefaultServerFileSystem fileSystem;

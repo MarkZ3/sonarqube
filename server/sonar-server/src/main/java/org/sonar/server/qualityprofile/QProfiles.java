@@ -23,7 +23,7 @@ import com.google.common.base.Strings;
 import java.util.List;
 import javax.annotation.CheckForNull;
 import org.sonar.api.component.Component;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.server.exceptions.BadRequestException;
 import org.sonar.server.user.UserSession;
 import org.sonar.server.util.Validation;
@@ -32,7 +32,7 @@ import org.sonar.server.util.Validation;
  * Use {@link org.sonar.server.qualityprofile.QProfileService} instead
  */
 @Deprecated
-@ServerSide
+@WebServerSide
 public class QProfiles {
 
   private static final String LANGUAGE_PARAM = "language";

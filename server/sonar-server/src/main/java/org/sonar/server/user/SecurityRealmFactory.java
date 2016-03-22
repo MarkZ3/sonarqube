@@ -23,10 +23,10 @@ import javax.annotation.Nullable;
 import org.apache.commons.lang.StringUtils;
 import org.picocontainer.Startable;
 import org.sonar.api.CoreProperties;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.config.Settings;
 import org.sonar.api.security.LoginPasswordAuthenticator;
 import org.sonar.api.security.SecurityRealm;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.SonarException;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -34,7 +34,7 @@ import org.sonar.api.utils.log.Loggers;
 /**
  * @since 2.14
  */
-@ServerSide
+@WebServerSide
 public class SecurityRealmFactory implements Startable {
 
   private final boolean ignoreStartupFailure;

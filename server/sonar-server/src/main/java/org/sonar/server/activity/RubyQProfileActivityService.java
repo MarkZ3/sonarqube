@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.picocontainer.Startable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.Paging;
 import org.sonar.server.es.SearchOptions;
 import org.sonar.server.qualityprofile.QProfileActivity;
@@ -38,7 +38,7 @@ import static org.sonar.api.utils.Paging.forPageIndex;
  * @deprecated in 4.4 because Ruby on Rails is deprecated too !
  */
 @Deprecated
-@ServerSide
+@WebServerSide
 public class RubyQProfileActivityService implements Startable {
 
   private final QProfileService service;

@@ -40,7 +40,7 @@ import org.sonar.api.rules.ActiveRuleParam;
 import org.sonar.api.rules.Rule;
 import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.rules.RulePriority;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.utils.ValidationMessages;
 import org.sonar.db.DbClient;
 import org.sonar.db.DbSession;
@@ -52,7 +52,7 @@ import org.sonar.db.qualityprofile.QualityProfileDto;
 import org.sonar.server.exceptions.BadRequestException;
 import org.sonar.server.exceptions.NotFoundException;
 
-@ServerSide
+@WebServerSide
 public class QProfileExporters {
 
   private final DbClient dbClient;

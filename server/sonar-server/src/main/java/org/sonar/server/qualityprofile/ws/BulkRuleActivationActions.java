@@ -23,7 +23,7 @@ import org.sonar.api.i18n.I18n;
 import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.rule.Severity;
 import org.sonar.api.rules.RuleType;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.ws.Request;
 import org.sonar.api.server.ws.RequestHandler;
 import org.sonar.api.server.ws.Response;
@@ -52,7 +52,7 @@ import static org.sonarqube.ws.client.rule.RulesWsParameters.PARAM_TAGS;
 import static org.sonarqube.ws.client.rule.RulesWsParameters.PARAM_TEMPLATE_KEY;
 import static org.sonarqube.ws.client.rule.RulesWsParameters.PARAM_TYPES;
 
-@ServerSide
+@WebServerSide
 public class BulkRuleActivationActions {
 
   public static final String PROFILE_KEY = "profile_key";

@@ -19,13 +19,13 @@
  */
 package org.sonar.server.text;
 
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.markdown.Markdown;
 
 /**
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
 public class RubyTextService {
 
   private final MacroInterpreter macroInterpreter;

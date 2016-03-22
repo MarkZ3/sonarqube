@@ -30,7 +30,7 @@ import org.sonar.api.issue.Issue;
 import org.sonar.api.issue.action.Action;
 import org.sonar.api.issue.action.Actions;
 import org.sonar.api.issue.action.Function;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.core.issue.DefaultIssue;
 import org.sonar.core.issue.IssueChangeContext;
 import org.sonar.db.DbClient;
@@ -48,7 +48,7 @@ import static org.sonar.api.web.UserRole.ISSUE_ADMIN;
 /**
  * @since 3.6
  */
-@ServerSide
+@WebServerSide
 public class ActionService {
 
   private final DbClient dbClient;

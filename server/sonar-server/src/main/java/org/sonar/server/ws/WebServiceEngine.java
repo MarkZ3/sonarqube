@@ -24,7 +24,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.picocontainer.Startable;
 import org.sonar.api.i18n.I18n;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.ws.WebService;
 import org.sonar.api.server.ws.internal.ValidatingRequest;
 import org.sonar.api.utils.log.Loggers;
@@ -42,7 +42,7 @@ import static org.sonar.server.ws.RequestVerifier.verifyRequest;
 /**
  * @since 4.2
  */
-@ServerSide
+@WebServerSide
 public class WebServiceEngine implements Startable {
 
   private final WebService.Context context;

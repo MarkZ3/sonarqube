@@ -20,12 +20,11 @@
 package org.sonar.server.issue;
 
 import com.google.common.collect.Sets;
-import org.sonar.api.server.ServerSide;
-
 import java.util.Collection;
 import java.util.Set;
+import org.sonar.api.server.WebServerSide;
 
-@ServerSide
+@WebServerSide
 public class RemoveTagsAction extends AbstractChangeTagsAction {
 
   public static final String KEY = "remove_tags";

@@ -19,13 +19,12 @@
  */
 package org.sonar.api.i18n;
 
-import org.sonar.api.batch.BatchSide;
-import org.sonar.api.server.ServerSide;
-import org.sonar.api.rules.Rule;
-
-import javax.annotation.CheckForNull;
-
 import java.util.Locale;
+import javax.annotation.CheckForNull;
+import org.sonar.api.batch.BatchSide;
+import org.sonar.api.rules.Rule;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * {@link I18n}-companion component that provides translation facilities for rule names, descriptions and parameter names.
@@ -35,7 +34,8 @@ import java.util.Locale;
  */
 @Deprecated
 @BatchSide
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public interface RuleI18n {
 
   /**

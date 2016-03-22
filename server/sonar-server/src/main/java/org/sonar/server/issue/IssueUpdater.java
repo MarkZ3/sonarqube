@@ -34,7 +34,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.sonar.api.issue.ActionPlan;
 import org.sonar.api.rules.RuleType;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.rule.RuleTagFormat;
 import org.sonar.api.user.User;
 import org.sonar.api.utils.Duration;
@@ -48,7 +49,8 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 /**
  * Updates issue fields and chooses if changes must be kept in history.
  */
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 public class IssueUpdater {
 
   public static final String UNUSED = "";

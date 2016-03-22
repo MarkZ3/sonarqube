@@ -20,8 +20,8 @@
 package org.sonar.server.qualityprofile.ws;
 
 import com.google.common.base.Preconditions;
-import org.sonar.api.server.ServerSide;
 import org.sonar.api.resources.Languages;
+import org.sonar.api.server.WebServerSide;
 import org.sonar.api.server.ws.Request;
 import org.sonar.api.server.ws.RequestHandler;
 import org.sonar.api.server.ws.Response;
@@ -38,7 +38,7 @@ import org.sonar.server.user.UserSession;
 import static org.apache.commons.lang.StringUtils.isEmpty;
 import static org.sonar.server.ws.KeyExamples.KEY_PROJECT_EXAMPLE_001;
 
-@ServerSide
+@WebServerSide
 public class ProjectAssociationActions {
 
   private static final String PARAM_LANGUAGE = "language";

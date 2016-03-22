@@ -19,10 +19,11 @@
  */
 package org.sonar.api.resources;
 
-import org.sonar.api.batch.BatchSide;
 import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.batch.BatchSide;
 import org.sonar.api.batch.InstantiationStrategy;
+import org.sonar.api.server.ComputeEngineSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * The extension point to define a new language
@@ -33,7 +34,8 @@ import org.sonar.api.batch.InstantiationStrategy;
  */
 @BatchSide
 @InstantiationStrategy(InstantiationStrategy.PER_BATCH)
-@ServerSide
+@WebServerSide
+@ComputeEngineSide
 @ExtensionPoint
 public interface Language {
 

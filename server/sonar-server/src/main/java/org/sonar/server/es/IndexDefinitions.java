@@ -24,12 +24,12 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import org.elasticsearch.common.settings.Settings;
 import org.picocontainer.Startable;
-import org.sonar.api.server.ServerSide;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * This class collects definitions of all Elasticsearch indices during server startup
  */
-@ServerSide
+@WebServerSide
 public class IndexDefinitions implements Startable {
 
   /**

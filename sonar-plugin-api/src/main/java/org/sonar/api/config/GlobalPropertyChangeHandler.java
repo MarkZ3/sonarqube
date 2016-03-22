@@ -19,10 +19,9 @@
  */
 package org.sonar.api.config;
 
-import org.sonar.api.ExtensionPoint;
-import org.sonar.api.server.ServerSide;
-
 import javax.annotation.Nullable;
+import org.sonar.api.ExtensionPoint;
+import org.sonar.api.server.WebServerSide;
 
 /**
  * Observe changes of global properties done from web application. It does not support :
@@ -34,7 +33,7 @@ import javax.annotation.Nullable;
  *
  * @since 3.0
  */
-@ServerSide
+@WebServerSide
 @ExtensionPoint
 public abstract class GlobalPropertyChangeHandler {
 
