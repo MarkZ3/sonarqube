@@ -46,6 +46,7 @@ import org.sonar.db.protobuf.DbFileSources;
 import org.sonar.db.source.FileSourceDto;
 import org.sonar.db.source.FileSourceDto.Type;
 import org.sonar.scanner.protocol.output.ScannerReport;
+import org.sonar.scanner.protocol.output.ScannerReport.Test.TestStatus;
 import org.sonar.server.computation.batch.BatchReportReader;
 import org.sonar.server.computation.component.Component;
 import org.sonar.server.computation.component.ComponentVisitor;
@@ -191,16 +192,12 @@ public class PersistTestsStep implements ComputationStep {
           DbFileSources.Test.Builder dbTest = DbFileSources.Test.newBuilder();
           dbTest.setUuid(Uuids.create());
           dbTest.setName(batchTest.getName());
-          if (batchTest.hasStacktrace()) {
-            dbTest.setStacktrace(batchTest.getStacktrace());
-          }
-          if (batchTest.hasStatus()) {
+          dbTest.setStacktrace(batchTest.getStacktrace());
+          if (batchTest.getStatus() != TestStatus.UNKNOWN_STATUS) {
             dbTest.setStatus(DbFileSources.Test.TestStatus.valueOf(batchTest.getStatus().name()));
           }
-          if (batchTest.hasMsg()) {
-            dbTest.setMsg(batchTest.getMsg());
-          }
-          if (batchTest.hasDurationInMs()) {
+          dbTest.setMsg(batchTest.getMsg());
+          if (batchTest.getDurationInMs() != 0) {
             dbTest.setExecutionTimeMs(batchTest.getDurationInMs());
           }
 

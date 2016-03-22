@@ -90,7 +90,7 @@ public class ProjectBuilderMediumTest {
       if (issue.getLine() == 1) {
         foundIssueAtLine1 = true;
         assertThat(issue.getMsg()).isEqualTo("This issue is generated on each line");
-        assertThat(issue.hasGap()).isFalse();
+        assertThat(issue.getGap()).isEqualTo(0.0);
       }
     }
     assertThat(foundIssueAtLine1).isTrue();
@@ -145,7 +145,7 @@ public class ProjectBuilderMediumTest {
       if (issue.getLine() == 1) {
         foundIssueAtLine1 = true;
         assertThat(issue.getMsg()).isEqualTo("This issue is generated on each line");
-        assertThat(issue.hasGap()).isFalse();
+        assertThat(issue.getGap()).isEqualTo(0.0);
       }
     }
     assertThat(foundIssueAtLine1).isTrue();

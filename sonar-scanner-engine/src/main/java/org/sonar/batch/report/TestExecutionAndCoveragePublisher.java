@@ -34,11 +34,11 @@ import org.sonar.batch.index.BatchComponent;
 import org.sonar.batch.index.BatchComponentCache;
 import org.sonar.batch.test.DefaultTestable;
 import org.sonar.batch.test.TestPlanBuilder;
-import org.sonar.scanner.protocol.Constants.TestStatus;
 import org.sonar.scanner.protocol.output.ScannerReport;
-import org.sonar.scanner.protocol.output.ScannerReportWriter;
 import org.sonar.scanner.protocol.output.ScannerReport.CoverageDetail;
 import org.sonar.scanner.protocol.output.ScannerReport.Test;
+import org.sonar.scanner.protocol.output.ScannerReport.Test.TestStatus;
+import org.sonar.scanner.protocol.output.ScannerReportWriter;
 
 public class TestExecutionAndCoveragePublisher implements ReportPublisherStep {
 
